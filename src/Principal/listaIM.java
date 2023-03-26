@@ -218,9 +218,46 @@ public class listaIM {
     
     
     
-    //Implementación matematica que nos permita que mientras mas grande el número su indexación sea menor
+    public void tipo(String entrada){
+        DobleNodo Aux=this.inicio;
+        listaIM Aux2=new listaIM();
+        while(Aux!=null){
+            if(entrada.equals(Aux.getDato().getNombre())){
+                Aux2.agregar(Aux.getDato());
+            }
+            Aux=Aux.getNodoSiguiente();
+        }
+        Aux2.mostrar();
+    }
     
     
+    public void buscar(String entrada){
+        DobleNodo Aux=this.inicio;
+        IM Aux2=null;
+        while(Aux!=null){
+            if((entrada.equals(Aux.getDato().getNombre()))){
+                Aux2=Aux.getDato();
+            }
+            Aux=Aux.getNodoSiguiente();     
+        }
+        System.out.println(Aux2);
+    }
+                
+    public DobleNodo ubicarNodo(int index){
+        DobleNodo Aux=this.inicio;
+        DobleNodo dato=null;
+        while(Aux!=null){
+            for(int i=0;i<this.size();i++){
+                if(i==index){
+                    dato=Aux;
+                }
+            }
+            Aux.getNodoSiguiente();
+        }
+        return dato;
+    }
+    
+
     @Override
     public String toString() {
         return "[" + inicio + "," + fin + ']';

@@ -22,9 +22,11 @@ public class Principal {
         //lista.mostrarOrdenPrecio();
         System.out.println("-------------------------------------Descuento--------------------------------");
         lista.descuento("Cuerda", 0.5);
-        System.out.println("-------------------------------------Buscar por nombre--------------------------");
-        
-       
+        System.out.println("-------------------------------------Buscar por nombre--------------------------");      
+        lista.buscar("Bajo");
+        System.out.println("-------------------------------------Lista por tipo--------------------------");
+        lista.tipo("Cuerda");
+        System.out.println(lista.ubicarNodo(3));
 
     }
     
