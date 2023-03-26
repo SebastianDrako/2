@@ -56,28 +56,38 @@ public class listaIM {
             System.out.println("La lista está vacia");
         }else{
             // Definimos las array para simular un maping
-            int keys[] = new int[this.size()];
+            double keys[] = new double[this.size()];
             IM objetos[] = new IM[this.size()];
+            
             //iniciamos las variables necesarias para recorrer la lista
             DobleNodo Aux=this.inicio;
             int counter = 0;
+            
             //recorremos la lista , por cada nodo extraemos nombre y numero
             while(Aux!=null){
+            
                 keys[counter] = this.autoid(Aux.getDato().getNombre());
                 objetos[counter] = Aux.getDato();
+                
                 Aux=Aux.getNodoSiguiente();
+            
                 counter ++;
+            
             }
+           
             // Clonamos la lista con las llaves para organizarla
-            int sorting[] = keys.clone();
+            double sorting[] = keys.clone();
+            
             //organizamos la lista sorting
             for (int i = 0; i < sorting.length; i++){  
                 for (int j = i + 1; j < sorting.length; j++){
-                    int tmp = 0;  
+                    double tmp = 0;  
                     if (sorting[i] > sorting[j]){
                         tmp = sorting[i];
                         sorting[i] = sorting[j];
                         sorting[j] = tmp;}}}
+           
+            
             // Por cada uno de los valores de la lista ordenada
             for (int i = 0; i < sorting.length; i++) {
                 int index = 0;
@@ -86,40 +96,63 @@ public class listaIM {
                     if(keys[ii] == sorting[i]) {
                         index = ii;
                     break;}}
+
             // Encuentra el valor en la lista de objetos y lo imprime
             System.out.println(objetos[index].toString());
+                                                        }
+            
             }
-        }     
-    }
+            
+            
+        }
     
     public void mostrarOdenAlfabeticoAsce(){
         if(listaVacia()){
             System.out.println("La lista está vacia");
         }else{
-            int keys[] = new int[this.size()];
+            // Definimos las array para simular un maping
+            double keys[] = new double[this.size()];
             IM objetos[] = new IM[this.size()];
+            
+            //iniciamos las variables necesarias para recorrer la lista
             DobleNodo Aux=this.inicio;
             int counter = 0;
+            
+            //recorremos la lista , por cada nodo extraemos nombre y numero
             while(Aux!=null){
+            
                 keys[counter] = this.autoid(Aux.getDato().getNombre());
                 objetos[counter] = Aux.getDato();
+                
                 Aux=Aux.getNodoSiguiente();
+            
                 counter ++;
+            
             }
-            int sorting[] = keys.clone();
+           
+            // Clonamos la lista con las llaves para organizarla
+            double sorting[] = keys.clone();
+            
+            //organizamos la lista sorting
             for (int i = 0; i < sorting.length; i++){  
                 for (int j = i + 1; j < sorting.length; j++){
-                    int tmp = 0;  
+                    double tmp = 0;  
                     if (sorting[i] < sorting[j]){
                         tmp = sorting[i];
                         sorting[i] = sorting[j];
                         sorting[j] = tmp;}}}
+           
+            
+            // Por cada uno de los valores de la lista ordenada
             for (int i = 0; i < sorting.length; i++) {
                 int index = 0;
+            // Busca el indice del valor en la lista de llaves
                 for(int ii = 0; ii < keys.length; ii++) {
                     if(keys[ii] == sorting[i]) {
                         index = ii;
                     break;}}
+
+            // Encuentra el valor en la lista de objetos y lo imprime
             System.out.println(objetos[index].toString());
             }
         }     
@@ -210,13 +243,18 @@ public class listaIM {
     }
 
     
-    public int autoid (String evstring){
+    public double autoid (String evstring){
+    
         byte[] evaluating = evstring.toLowerCase().getBytes();
-        int weihgt = 3;
-        int sum = 0;
-        for(int i=0;i < weihgt;i+=1){
-            sum += evaluating[i]* Math.pow(10 , (weihgt-i));
+        
+        int maxleng = 8;
+        
+        double sum = 0;
+        
+        for(int i=0;i < evstring.length();i+=1){
+            sum += evaluating[i]* Math.pow(10 , (maxleng-i)) ;
         }
+        System.out.println(sum);
         return sum;
     }
     
@@ -235,6 +273,27 @@ public class listaIM {
         
         return num;
     }
+    
+    
+    public listaIM listaPorTipo(String tipo){
+    
+        DobleNodo Aux=this.inicio;
+        listaIM datos = new listaIM();
+        if(!this.listaVacia()){
+        
+        while(Aux!=null){
+            
+                String evalTipo = Aux.getDato().getTipo();
+                if (evalTipo == tipo){ datos.agregar(Aux.getDato()); }
+                Aux=Aux.getNodoSiguiente();
+            
+            }   
+            
+        }
+        return datos;
+        
+    }
+    
     
     public void buscar(String entrada){
         DobleNodo Aux=this.inicio;
