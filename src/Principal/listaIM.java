@@ -230,18 +230,18 @@ public class listaIM {
         Aux2.mostrar();
     }
     
-    
-    public void buscar(String entrada){
-        DobleNodo Aux=this.inicio;
-        IM Aux2=null;
-        while(Aux!=null){
-            if((entrada.equals(Aux.getDato().getNombre()))){
-                Aux2=Aux.getDato();
-            }
-            Aux=Aux.getNodoSiguiente();     
+    public void eliminarInicio(){
+        if(listaVacia()){
+            System.out.println("Lista Vacia");
+        }else{
+            this.inicio.setNodoSiguiente(inicio);
+            this.inicio.getNodoSiguiente().setNodoAnterior(null);
+            this.inicio=inicio.getNodoSiguiente();
         }
-        System.out.println(Aux2);
     }
+
+    
+    
                 
     public DobleNodo ubicarNodo(int index){
         DobleNodo Aux=this.inicio;

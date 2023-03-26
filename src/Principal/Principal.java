@@ -23,11 +23,17 @@ public class Principal {
         System.out.println("-------------------------------------Descuento--------------------------------");
         lista.descuento("Cuerda", 0.5);
         System.out.println("-------------------------------------Buscar por nombre--------------------------");      
-        lista.buscar("Bajo");
+        
         System.out.println("-------------------------------------Lista por tipo--------------------------");
-        lista.tipo("Cuerda");
-        System.out.println(lista.ubicarNodo(3));
-
+        //lista.tipo("Cuerda");
+        //System.out.println(lista.ubicarNodo(3));
+        
+        System.out.println("-----------eliminarInicio---------");
+//        lista.eliminarInicio();
+//        lista.mostrar();
+        
+        lista.mostrar();
+        
     }
     
 }
