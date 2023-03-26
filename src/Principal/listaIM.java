@@ -199,32 +199,26 @@ public class listaIM {
     
     public void agregarPosicion(IM dato,int index){
         DobleNodo Aux = new DobleNodo(dato);
-        DobleNodo Aux2=this.inicio;
-        if (listaVacia()){
-            this.inicio = Aux;
-            this.fin = Aux;
-        }else{
-            for(int i=0;i<this.size();i++){
-                if(i=index)){
-                    Aux.setNodoSiguiente(Aux);
-                    Aux.getNodoSiguiente().setNodoAnterior(Aux);
-                    Aux.setNodoAnterior(Aux);
-                    Aux.getNodoAnterior().setNodoSiguiente(Aux);
-                }
-            Aux2=Aux.getNodoSiguiente();
-        }
-                     
-        }
+        DobleNodo Aux2=this.encontrarNodo(index);
+            while(Aux2!=null){
+                    Aux.setNodoSiguiente(Aux2.getNodoSiguiente());
+                    Aux.setNodoAnterior(Aux2);
+                    Aux2.setNodoSiguiente(Aux);
+            }
+
         this.tamano ++;
     }
     
-    public void encontrarNodo(int index){
+    public DobleNodo encontrarNodo(int index){
         DobleNodo Aux=this.inicio;
+        
         int cont=0;
         while(cont!=index){
             Aux=Aux.getNodoSiguiente();
             cont++;
         }
+        System.out.println(Aux.getDato());
+        return Aux;
     }
     
     public void descuento(String entrada,double descuento){
@@ -342,7 +336,13 @@ public class listaIM {
     
     
     public void eliminar(int index){
- 
+        
+        DobleNodo Aux2=this.encontrarNodo(index);
+            while(Aux2!=null){
+                    Aux2.setNodoSiguiente(Aux2.getNodoAnterior());
+                    Aux2.setNodoAnterior(Aux2.getNodoSiguiente());
+            }
+        this.tamano --;
     }
     
     
