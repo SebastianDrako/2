@@ -22,19 +22,23 @@ public class Principal {
         lista.agregarInicio(new IM("Flauta","Viento",89000));
         System.out.println("-----------------------------------Agregar Final-------------------------------");
         lista.agregarFinal(new IM("Maraca","Percusion",25000));
+        System.out.println("----------------------------------Agregar Posicion-------------------------------");
+//        lista.agregarPosicion(new IM("Armonica","Viento",98500), 1);
+//        lista.mostrar();
         System.out.println("-------------------------------------Orden de precio de mayor a menor----------------------------");
         
         System.out.println("-------------------------------------Descuento--------------------------------");
         lista.descuento("Cuerda", 0.5);
         System.out.println("-------------------------------------Buscar por nombre--------------------------");
         lista.buscar("Bombo");
-        
+        lista.encontrarNodo(2);
         System.out.println("-----------------------------------------Eliminar inicio-----------------------------");
         lista.eliminarInicio();
         System.out.println("-----------------------------------------Eliminar Final-------------------------------");
         lista.eliminarFinal();
         System.out.println("-----------------------------------------Eliminar------------------------------------");
-        //lista.eliminar(0);
+        lista.eliminar(0);
+        lista.mostrar();
         
        
 
