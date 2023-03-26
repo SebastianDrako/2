@@ -24,6 +24,8 @@ public class Principal {
         lista.descuento("Cuerda", 0.5);
         System.out.println("-------------------------------------Buscar por nombre--------------------------");
         
+        System.out.println("-------------------------------------Retorna Lista por tipo--------------------------");
+        lista.listaPorTipo("Cuerda").mostrar();
        
 
     }
