@@ -254,6 +254,24 @@ public class listaIM {
         return num;
     }
     
+    public listaIM listaPorTipo(String tipo){
+    
+        DobleNodo Aux=this.inicio;
+        listaIM datos = new listaIM();
+        if(!this.listaVacia()){
+        
+        while(Aux!=null){
+            
+                String evalTipo = Aux.getDato().getTipo();
+                if (evalTipo == tipo){ datos.agregar(Aux.getDato()); }
+                Aux=Aux.getNodoSiguiente();
+            
+            }   
+            
+        }
+        return datos;
+        
+    }
     
     
     public void tipo(String entrada){
