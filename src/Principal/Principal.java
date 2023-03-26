@@ -18,20 +18,30 @@ public class Principal {
         lista.mostrarOrdenAlfabetico();
         System.out.println("-------------------------------------Orden alfabetico Ascendente--------------------------------");
         lista.mostrarOdenAlfabeticoAsce();
+        System.out.println("-----------------------------------Agregar Inicio--------------------");
+        lista.agregarInicio(new IM("Flauta","Viento",89000));
+        System.out.println("-----------------------------------Agregar Final-------------------------------");
+        lista.agregarFinal(new IM("Maraca","Percusion",25000));
         System.out.println("-------------------------------------Orden de precio de mayor a menor----------------------------");
-        //lista.mostrarOrdenPrecio();
+        
         System.out.println("-------------------------------------Descuento--------------------------------");
         lista.descuento("Cuerda", 0.5);
 
+
         System.out.println("-------------------------------------Buscar por nombre--------------------------");
-        
+        lista.buscar("Bombo");
         System.out.println("-------------------------------------Retorna Lista por tipo--------------------------");
         lista.listaPorTipo("Cuerda").mostrar();
        
 
         System.out.println("-------------------------------------Buscar por nombre--------------------------");      
         lista.buscar("Bajo");
-
+        System.out.println("-----------------------------------------Eliminar inicio-----------------------------");
+        lista.eliminarInicio();
+        System.out.println("-----------------------------------------Eliminar Final-------------------------------");
+        lista.eliminarFinal();
+        System.out.println("-----------------------------------------Eliminar------------------------------------");
+        //lista.eliminar(0);
 
 
     }

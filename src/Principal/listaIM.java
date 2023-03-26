@@ -161,15 +161,11 @@ public class listaIM {
     public void mostrarOrdenPrecio(){
         listaIM listaAux=new listaIM();
         DobleNodo Aux=this.inicio;
-        double actual=Aux.getDato().getPrecio();
-        double siguiente=Aux.getNodoSiguiente().getDato().getPrecio();
+        
         while(Aux!=null){
-            if(actual>siguiente){   
-                listaAux.agregar(Aux.getDato());
-            }
-            else{
+            if(Aux.getDato().getPrecio()<Aux.getNodoSiguiente().getDato().getPrecio()){   
                 listaAux.agregar(Aux.getNodoSiguiente().getDato());
-            } 
+            }
             Aux=Aux.getNodoSiguiente();
         }
         listaAux.mostrar();
@@ -198,6 +194,36 @@ public class listaIM {
             aux.setNodoAnterior(this.fin);
             this.fin.setNodoSiguiente(aux);
             this.fin=aux;
+        }
+    }
+    
+    public void agregarPosicion(IM dato,int index){
+        DobleNodo Aux = new DobleNodo(dato);
+        DobleNodo Aux2=this.inicio;
+        if (listaVacia()){
+            this.inicio = Aux;
+            this.fin = Aux;
+        }else{
+            for(int i=0;i<this.size();i++){
+                if(i=index)){
+                    Aux.setNodoSiguiente(Aux);
+                    Aux.getNodoSiguiente().setNodoAnterior(Aux);
+                    Aux.setNodoAnterior(Aux);
+                    Aux.getNodoAnterior().setNodoSiguiente(Aux);
+                }
+            Aux2=Aux.getNodoSiguiente();
+        }
+                     
+        }
+        this.tamano ++;
+    }
+    
+    public void encontrarNodo(int index){
+        DobleNodo Aux=this.inicio;
+        int cont=0;
+        while(cont!=index){
+            Aux=Aux.getNodoSiguiente();
+            cont++;
         }
     }
     
@@ -254,6 +280,7 @@ public class listaIM {
         return num;
     }
     
+    
     public listaIM listaPorTipo(String tipo){
     
         DobleNodo Aux=this.inicio;
@@ -274,19 +301,6 @@ public class listaIM {
     }
     
     
-    public void tipo(String entrada){
-        DobleNodo Aux=this.inicio;
-        listaIM Aux2=new listaIM();
-        while(Aux!=null){
-            if(entrada.equals(Aux.getDato().getNombre())){
-                Aux2.agregar(Aux.getDato());
-            }
-            Aux=Aux.getNodoSiguiente();
-        }
-        Aux2.mostrar();
-    }
-    
-    
     public void buscar(String entrada){
         DobleNodo Aux=this.inicio;
         IM Aux2=null;
@@ -298,25 +312,47 @@ public class listaIM {
         }
         System.out.println(Aux2);
     }
-                
-    public DobleNodo ubicarNodo(int index){
+    
+    
+    
+    public void eliminarInicio(){
         DobleNodo Aux=this.inicio;
-        DobleNodo dato=null;
-        while(Aux!=null){
-            for(int i=0;i<this.size();i++){
-                if(i==index){
-                    dato=Aux;
-                }
-            }
-            Aux.getNodoSiguiente();
+        if(listaVacia()){
+            System.out.println("Lista Vacia");
+        }else{
+            this.inicio=Aux.getNodoSiguiente();
         }
-        return dato;
+        this.mostrar();
+        this.tamano--;
     }
     
-
+    public void eliminarFinal(){
+        DobleNodo Aux=this.fin;
+        if(listaVacia()){
+            System.out.println("Lista Vacia");
+        }else{
+            Aux.getNodoAnterior().setNodoSiguiente(null);
+            this.fin=Aux.getNodoAnterior();
+        }
+        this.mostrar();
+        this.tamano--;
+        
+    }
+    
+    
+    
+    public void eliminar(int index){
+ 
+    }
+    
+    
+    //Implementación matematica que nos permita que mientras mas grande el número su indexación sea menor
+    
+    
     @Override
     public String toString() {
         return "[" + inicio + "," + fin + ']';
     }
 
 }
+
