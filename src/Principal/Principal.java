@@ -26,17 +26,23 @@ public class Principal {
         
         System.out.println("-------------------------------------Descuento--------------------------------");
         lista.descuento("Cuerda", 0.5);
+
+
         System.out.println("-------------------------------------Buscar por nombre--------------------------");
         lista.buscar("Bombo");
-        
+        System.out.println("-------------------------------------Retorna Lista por tipo--------------------------");
+        lista.listaPorTipo("Cuerda").mostrar();
+       
+
+        System.out.println("-------------------------------------Buscar por nombre--------------------------");      
+        lista.buscar("Bajo");
         System.out.println("-----------------------------------------Eliminar inicio-----------------------------");
         lista.eliminarInicio();
         System.out.println("-----------------------------------------Eliminar Final-------------------------------");
         lista.eliminarFinal();
         System.out.println("-----------------------------------------Eliminar------------------------------------");
         //lista.eliminar(0);
-        
-       
+
 
     }
     
