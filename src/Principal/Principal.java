@@ -18,22 +18,26 @@ public class Principal {
         lista.mostrarOrdenAlfabetico();
         System.out.println("-------------------------------------Orden alfabetico Ascendente--------------------------------");
         lista.mostrarOdenAlfabeticoAsce();
+        System.out.println("-----------------------------------Agregar Inicio--------------------");
+        lista.agregarInicio(new IM("Flauta","Viento",89000));
+        System.out.println("-----------------------------------Agregar Final-------------------------------");
+        lista.agregarFinal(new IM("Maraca","Percusion",25000));
         System.out.println("-------------------------------------Orden de precio de mayor a menor----------------------------");
-        //lista.mostrarOrdenPrecio();
+        
         System.out.println("-------------------------------------Descuento--------------------------------");
         lista.descuento("Cuerda", 0.5);
-        System.out.println("-------------------------------------Buscar por nombre--------------------------");      
+        System.out.println("-------------------------------------Buscar por nombre--------------------------");
+        lista.buscar("Bombo");
         
-        System.out.println("-------------------------------------Lista por tipo--------------------------");
-        //lista.tipo("Cuerda");
-        //System.out.println(lista.ubicarNodo(3));
+        System.out.println("-----------------------------------------Eliminar inicio-----------------------------");
+        lista.eliminarInicio();
+        System.out.println("-----------------------------------------Eliminar Final-------------------------------");
+        lista.eliminarFinal();
+        System.out.println("-----------------------------------------Eliminar------------------------------------");
+        //lista.eliminar(0);
         
-        System.out.println("-----------eliminarInicio---------");
-//        lista.eliminarInicio();
-//        lista.mostrar();
-        
-        lista.mostrar();
-        
+       
+
     }
     
 }
